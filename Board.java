@@ -14,15 +14,14 @@ public class Board extends JPanel implements ActionListener{
     char direction='R'; 
     static boolean running=false;
 
-    static final int delay = 200;
+    static final int delay = 180;
     Timer timer ;
 
     Board()
     {
         this.setPreferredSize(new Dimension(width,height));
-        this.setBackground(Color.lightGray);
-		this.setFocusable(true);  
-
+        this.setBackground(new Color(246, 228, 200));
+		this.setFocusable(true);       
         this.addKeyListener(new MyKeyAdapter());
 
         running =true;
@@ -36,14 +35,14 @@ public class Board extends JPanel implements ActionListener{
         super.paintComponent(g);
 
         //to write score
-        g.setColor(Color.RED);
-        g.setFont( new Font("Ink Free",Font.BOLD, 40));
-        g.drawString("Score: "+Cell.score, width/2, 35);
+        g.setColor(new Color( 119, 70, 50));
+        g.setFont( new Font("Arial",Font.BOLD, 40));
+        g.drawString("Score: "+Cell.score, width-200, 35);
 
         if(running){
 
             //to draw apple
-            g.setColor(Color.RED);
+            g.setColor(new Color( 201, 52, 28));
             g.fillOval(Cell.X, Cell.Y, Cell.side, Cell.side);
 
             //to draw snake
@@ -53,7 +52,7 @@ public class Board extends JPanel implements ActionListener{
                     g.fillOval(x[i], y[i], Cell.side, Cell.side);
                 }
                 else{
-                    g.setColor(Color.BLUE);
+                    g.setColor(new Color(161, 107, 35));
                     g.fillOval(x[i],y[i], Cell.side, Cell.side);
 
                 }
@@ -63,9 +62,9 @@ public class Board extends JPanel implements ActionListener{
         }
         else{
             // gameover 
-            g.setColor(Color.RED);
+            g.setColor(new Color( 119, 27, 12));
             g.setFont( new Font("Ink Free",Font.BOLD, 100));
-            g.drawString("Game Over", width/2, height/2);
+            g.drawString("Game Over", width/2-300, height/2);
         }
     }
 
