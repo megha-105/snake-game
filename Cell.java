@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Cell {
     
-    static final int side=35;
+    static final int side=50;
     static int totCount= (Board.width*Board.height)/(side*side);
     static Random random=new Random();
 

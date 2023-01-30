@@ -20,7 +20,7 @@ public class Board extends JPanel implements ActionListener{
     Board()
     {
         this.setPreferredSize(new Dimension(width,height));
-        this.setBackground(new Color(246, 228, 200));
+        this.setBackground(Color.black);
 		this.setFocusable(true);       
         this.addKeyListener(new MyKeyAdapter());
 
@@ -35,7 +35,7 @@ public class Board extends JPanel implements ActionListener{
         super.paintComponent(g);
 
         //to write score
-        g.setColor(new Color( 119, 70, 50));
+        g.setColor(Color.white);
         g.setFont( new Font("Arial",Font.BOLD, 40));
         g.drawString("Score: "+Cell.score, width-200, 35);
 
@@ -48,11 +48,11 @@ public class Board extends JPanel implements ActionListener{
             //to draw snake
             for(int i =0;i<size;i++){
                 if(i==0){
-                    g.setColor(Color.BLACK);
+                    g.setColor(Color.green);
                     g.fillOval(x[i], y[i], Cell.side, Cell.side);
                 }
                 else{
-                    g.setColor(new Color(161, 107, 35));
+                    g.setColor(new Color(0,252,130));
                     g.fillOval(x[i],y[i], Cell.side, Cell.side);
 
                 }
@@ -62,7 +62,7 @@ public class Board extends JPanel implements ActionListener{
         }
         else{
             // gameover 
-            g.setColor(new Color( 119, 27, 12));
+            g.setColor(Color.white);
             g.setFont( new Font("Ink Free",Font.BOLD, 100));
             g.drawString("Game Over", width/2-300, height/2);
         }
